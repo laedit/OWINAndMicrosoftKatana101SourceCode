@@ -4,7 +4,7 @@ public class Startup
     {
         app.Use((IOwinContext context, Func<Task> next) =>
         {
-            return context.Response.WriteAsync("<h1>Hello World</h1>"):
+            context.Response.WriteAsync("<h1>Hello World</h1>"):
 
             // Call next int the pipeline
             return next.Invoke();
