@@ -4,12 +4,12 @@ public class Startup
     {
         app.Run((IOwinContext context) =>
         {
-            return context.Response.WriteAsync("<h1>Hello World</h1>"):
+            return context.Response.WriteAsync("<h1>Hello World</h1>");
         });
 
         app.Run((IOwinContext context) =>
         {
-            return context.Response.WriteAsync("<h1>Hello, Simplified World</h1>"):
+            return context.Response.WriteAsync("<h1>Hello, Simplified World</h1>");
         });
     }
 }
