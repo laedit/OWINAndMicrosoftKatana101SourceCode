@@ -13,7 +13,7 @@ namespace MyAnotherHost
             app.Map("/planets", helloApp =>
             {
                 // New code Added - Starts here
-                app.Map("/3", helloEarth =>
+                helloApp.Map("/3", helloEarth =>
                 {
                     helloEarth.Run(async(IOwinContext context) =>
                     {
