@@ -1,7 +1,5 @@
-using System;
 using Microsoft.Owin;
 using Owin;
-using System.Text;
 
 [assembly: OwinStartup(typeof(MyAnotherHost.Startup))]
 namespace MyAnotherHost
