@@ -1,0 +1,27 @@
+using Microsoft.Owin;
+using Microsoft.Owin.Security.Infrastructure;
+using Owin;
+
+namespace SecuredWebApi
+{
+    public class DigestAuthenticationMiddleware : AuthenticationMiddleware<DigestAuthenticationOptions>
+    {
+        public DigestAuthenticationMiddleware(OwinMiddleware next, DigestAuthenticationOptions options)
+            : base(newt, options)
+        { }
+        
+        protected override AuthenticationHandler<DigestAuthenticationOptions> CreateHandler()
+        {
+            return new DigestAuthenticationhandler();
+        }
+    }
+    
+    public static class DigestAuthenticationMiddlewareExtensions
+    {
+        public static IAppBuilder UseDigestAuthentication(this IAppBuilder app, DigestAuthenticationOptions options)
+        {
+            app.Use(typeof(DigestAuthenticationMiddleware), options);
+            return app;
+        }
+    }
+}
