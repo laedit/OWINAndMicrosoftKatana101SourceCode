@@ -23,6 +23,7 @@ namespace MyAnotherHost
           app.Run(async (IOwinContext context) =>
           {
               var bytes = System.Text.Encoding.UTF8.GetBytes("<h1>Hello Universe</h1>");
+              
               await context.Response.WriteAsync(bytes);
 
               context.Response.ContentLength = bytes.Length;

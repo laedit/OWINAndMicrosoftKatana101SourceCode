@@ -1,10 +1,12 @@
+﻿using Microsoft.Owin;
+using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using Microsoft.Owin
 
 namespace MyAnotherHost
 {
     using AppFunc = Func<IDictionary<string, object>, Task>;
-    
+
     public class MachineNamingMiddleware
     {
         private readonly AppFunc next;
@@ -16,15 +18,15 @@ namespace MyAnotherHost
 
         public async Task Invoke(IDictionary<string, object> env)
         {
-            IOwinContext context = new IOwinContext(env);
-            
+            IOwinContext context = new OwinContext(env);
+
             context.Response.OnSendingHeaders(state =>
             {
                 var response = (OwinResponse)state;
-                
-                if(response.StatusCode >= 400)
+
+                if (response.StatusCode >= 400)
                 {
-                    response.Headers.Add("X-Box", new[] { System.Environment.MachineName });
+                    response.Headers.Add("X-Box", new[] { Environment.MachineName });
                 }
             },
             context.Response);

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace MyAnotherHost
 {
     using AppFunc = Func<IDictionary<string, object>, Task>;
-    
+
     public class MachineNamingMiddleware
     {
         private readonly AppFunc next;
@@ -18,14 +18,20 @@ namespace MyAnotherHost
 
         public async Task Invoke(IDictionary<string, object> env)
         {
-            await this.next(env);
-
             IOwinContext context = new OwinContext(env);
 
-            if(context.Response.StatusCode >= 400)
+            context.Response.OnSendingHeaders(state =>
             {
-                context.Response.Headers.Add("X-Box", new[] { System.Environment.MachineName });
-            }
+                var response = (OwinResponse)state;
+
+                if (response.StatusCode >= 400)
+                {
+                    response.Headers.Add("X-Box", new[] { Environment.MachineName });
+                }
+            },
+            context.Response);
+
+            await this.next(env);
         }
     }
 }
