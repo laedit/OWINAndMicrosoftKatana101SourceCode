@@ -9,9 +9,9 @@ namespace HelloWorld
 {
     using AppFunc = Func<IDictionary<string, object>, Task>;
 
-    public class MyClass
+    public class Startup
     {
-        public void Run(IAppBuilder app)
+        public void Configuration(IAppBuilder app)
         {
             var middleware = new Func<AppFunc, AppFunc>(Middleware);
             app.Use(middleware);
