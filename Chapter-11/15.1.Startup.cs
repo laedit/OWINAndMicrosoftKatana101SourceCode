@@ -6,9 +6,8 @@ public class Startup
         {
             Message = "Hello from ImprovedMiddleware",
             IsHtml = true
-        }); // Register our middlware.
+        }); // Register our middleware.
 
          // Rest of the middleware registrations go here.
     }
 }
-

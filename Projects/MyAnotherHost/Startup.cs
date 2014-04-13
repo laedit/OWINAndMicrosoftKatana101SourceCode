@@ -10,6 +10,14 @@ namespace MyAnotherHost
     {
         public void Configuration(IAppBuilder app)
         {
+            app.Use<ImprovedMiddleware>(new GreetingOptions()
+            {
+                Message = "Hello from ImprovedMiddleware",
+                IsHtml = true
+            });
+
+            app.Use<RawMiddleware>();
+
             app.Map("/planets", helloApp =>
             {
                 helloApp.Map("/3", helloEarth =>
