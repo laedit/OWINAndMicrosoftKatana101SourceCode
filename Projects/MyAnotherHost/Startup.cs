@@ -1,5 +1,6 @@
 ﻿using Microsoft.Owin;
 using Owin;
+using System.Web.Http;
 
 [assembly: OwinStartup(typeof(MyAnotherHost.Startup))]
 namespace MyAnotherHost
@@ -8,7 +9,9 @@ namespace MyAnotherHost
     {
         public void Configuration(IAppBuilder app)
         {
-            app.Use<ResponseReadingMiddleware>();
+            var config = new HttpConfiguration();
+            config.Routes.MapHttpRoute("default", "api/{controller}/{id}");
+            app.UseWebApi(config);
 
             app.Run(async (IOwinContext context) =>
             {

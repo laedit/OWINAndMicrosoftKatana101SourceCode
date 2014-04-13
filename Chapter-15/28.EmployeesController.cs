@@ -8,16 +8,16 @@ namespace MyWebApi.Controllers
         public HttpResponseMessage Get(int id)
         {
             //return Request.CreateResponse<Employee>(new Employee()
-            //    {
-            //        Id = id,
-            //        FirstName = "Johny",
-            //        LastName = "Law"
-            //    });
-            
+            //{
+            //    Id = id,
+            //    FirstName = "Johnny",
+            //    LastName = "Law"
+            //});
+
             return Request.CreateResponse(System.Net.HttpStatusCode.NotFound);
         }
     }
-    
+
     public class Employee
     {
         public int Id { get; set; }

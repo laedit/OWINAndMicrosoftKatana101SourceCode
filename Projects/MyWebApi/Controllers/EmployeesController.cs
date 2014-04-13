@@ -1,4 +1,4 @@
-using System.Net.Http;
+﻿using System.Net.Http;
 using System.Web.Http;
 
 namespace MyWebApi.Controllers
@@ -7,12 +7,14 @@ namespace MyWebApi.Controllers
     {
         public HttpResponseMessage Get(int id)
         {
-            return Request.CreateResponse<Employee>(new Employee()
-            {
-                Id = id,
-                FirstName = "Johnny",
-                LastName = "Law"
-            });
+            //return Request.CreateResponse<Employee>(new Employee()
+            //{
+            //    Id = id,
+            //    FirstName = "Johnny",
+            //    LastName = "Law"
+            //});
+
+            return Request.CreateResponse(System.Net.HttpStatusCode.NotFound);
         }
     }
 
