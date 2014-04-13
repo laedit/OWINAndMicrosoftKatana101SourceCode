@@ -1,8 +1,5 @@
 ﻿using Microsoft.Owin;
 using Owin;
-using System;
-using System.IO;
-using System.Text;
 
 [assembly: OwinStartup(typeof(MyAnotherHost.Startup))]
 namespace MyAnotherHost
@@ -11,20 +8,15 @@ namespace MyAnotherHost
     {
         public void Configuration(IAppBuilder app)
         {
-            app.Use<RequestReadingMiddleware>();
+            app.Use<ResponseReadingMiddleware>();
 
             app.Run(async (IOwinContext context) =>
             {
-                string body = String.Empty;
+                var bytes = System.Text.Encoding.UTF8.GetBytes("<h1>Hello World</h1>");
 
-                using (var reader = new StreamReader(context.Request.Body))
-                {
-                    body = await reader.ReadToEndAsync();
-                }
+                context.Response.ContentLength = bytes.Length;
 
-                context.Response.ContentLength = Encoding.UTF8.GetByteCount(body);
-
-                await context.Response.WriteAsync(body);
+                await context.Response.WriteAsync(bytes);
             });
         }
     }
