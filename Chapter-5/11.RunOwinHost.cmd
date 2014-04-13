@@ -1,1 +1,0 @@
-OwinHost HelloWorld.MyClass.Run
