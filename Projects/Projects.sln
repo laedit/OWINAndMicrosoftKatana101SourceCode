@@ -16,6 +16,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySimpleHost", "MySimpleHos
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyIISHost", "MyIISHost\MyIISHost.csproj", "{C717A447-307F-435A-9CA8-0DE54D1524F7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorldV2", "HelloWorldV2\HelloWorldV2.csproj", "{6A9E1B86-F6F6-4E3F-B4EE-676E64BFFE0A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,6 +36,10 @@ Global
 		{C717A447-307F-435A-9CA8-0DE54D1524F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C717A447-307F-435A-9CA8-0DE54D1524F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C717A447-307F-435A-9CA8-0DE54D1524F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A9E1B86-F6F6-4E3F-B4EE-676E64BFFE0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A9E1B86-F6F6-4E3F-B4EE-676E64BFFE0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A9E1B86-F6F6-4E3F-B4EE-676E64BFFE0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A9E1B86-F6F6-4E3F-B4EE-676E64BFFE0A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

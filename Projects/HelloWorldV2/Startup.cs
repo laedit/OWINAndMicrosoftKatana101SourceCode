@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Threading.Tasks;
 using System.Text;
 using Owin;
@@ -16,15 +16,14 @@ namespace HelloWorldV2
         {
             app.Run((IOwinContext context) =>
             {
-                byte[] bytes = Encoding.UTF8.GetBytes("<h1>Hello World</h1>");
+                byte[] bytes = Encoding.UTF8.GetBytes("<h1>Hello, Simplified World!</h1>");
 
                 var response = context.Response;
                 response.ContentType = "text/html";
-                response.ContentLength = bytes.length;
+                response.ContentLength = bytes.Length;
 
                 return response.WriteAsync(bytes);
             });
         }
     }
 }
-
