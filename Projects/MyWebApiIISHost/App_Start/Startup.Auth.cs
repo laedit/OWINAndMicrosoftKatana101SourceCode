@@ -1,12 +1,13 @@
-using Owin;
+﻿using Owin;
 using SecuredWebApi;
-using Syste:Security.Cryptography;
+using System.Security.Cryptography;
 
-[assembly: OwinStartup(typeof(MyWebApiIISHost.Startup))]
+namespace MyWebApiIISHost
 {
     public partial class Startup
     {
-        public void ConfigureAuth(IAppBuilder)
+        // For more information on configuring authentication, please visit http://go.microsoft.com/fwlink/?LinkId=301864
+        public void ConfigureAuth(IAppBuilder app)
         {
             var digestOptions = new DigestAuthenticationOptions()
             {
@@ -14,11 +15,11 @@ using Syste:Security.Cryptography;
                 GenerateNonceBytes = () =>
                 {
                     byte[] bytes = new byte[16];
-                    using(var provider = new RNGCryptoServiceProvider())
+                    using (var provider = new RNGCryptoServiceProvider())
                     {
                         provider.GetBytes(bytes);
                     }
-                    
+
                     return bytes;
                 }
             };

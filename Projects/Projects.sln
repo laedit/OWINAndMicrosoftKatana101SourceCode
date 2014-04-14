@@ -28,6 +28,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecuredWebApi", "SecuredWeb
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecuredWebApiClient", "SecuredWebApiClient\SecuredWebApiClient.csproj", "{C162E46C-4B28-4F3D-9FE7-87B7858B109F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyWebApiIISHost", "MyWebApiIISHost\MyWebApiIISHost.csproj", "{4ECDF6D6-624B-4DA9-9E2F-5A55B8787E2A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -70,6 +72,10 @@ Global
 		{C162E46C-4B28-4F3D-9FE7-87B7858B109F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C162E46C-4B28-4F3D-9FE7-87B7858B109F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C162E46C-4B28-4F3D-9FE7-87B7858B109F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4ECDF6D6-624B-4DA9-9E2F-5A55B8787E2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4ECDF6D6-624B-4DA9-9E2F-5A55B8787E2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4ECDF6D6-624B-4DA9-9E2F-5A55B8787E2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4ECDF6D6-624B-4DA9-9E2F-5A55B8787E2A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

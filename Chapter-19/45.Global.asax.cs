@@ -2,7 +2,7 @@ public class MvcApplication : System.Web.HttpApplication
 {
     protected void Application_Start()
     {
-        AreaRegistration.RegisterAllArea();
+        AreaRegistration.RegisterAllAreas();
         FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
         RouteConfig.RegisterRoutes(RouteTable.Routes);
         BundleConfig.RegisterBundles(BundleTable.Bundles);
