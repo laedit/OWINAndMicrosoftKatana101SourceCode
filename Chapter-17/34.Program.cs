@@ -33,7 +33,7 @@ namespace SecuredWebApi
         [Authorize]
         public HttpResponseMessage Get(int id)
         {
-            return Request.CrateResponse<string>("Hello Employee");
+            return Request.CreateResponse<string>("Hello Employee");
         }
     }
 }
