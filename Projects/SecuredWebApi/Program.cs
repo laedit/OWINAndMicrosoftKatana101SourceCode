@@ -4,6 +4,7 @@ using System;
 using System.Net.Http;
 using System.Web.Http;
 using Microsoft.Owin.Security.Jwt;
+using System.Security.Cryptography;
 
 namespace SecuredWebApi
 {
@@ -23,19 +24,35 @@ namespace SecuredWebApi
     {
         public void Configuration(IAppBuilder app)
         {
-            // New code added - BEGIN
-            var jwtOptions = new JwtBearerAuthenticationOptions
+            var digestOptions = new DigestAuthenticationOptions()
             {
-                AllowedAudiences = new[] { "http://localhost:5000/api" },
-                IssuerSecurityTokenProviders = new[]
-            {
-                new SymmetricKeyIssuerSecurityTokenProvider(
-                    issuer: "http://authzserver.demo",
-                    base64Key: "tTW8HB0ebW1qpCmRUEOknEIxaTQ0BFCYrdjOdOI4rfM=")
-            }
+                Realm = "magical",
+                GenerateNonceBytes = () =>
+                {
+                    byte[] bytes = new byte[16];
+                    using (var provider = new RNGCryptoServiceProvider())
+                    {
+                        provider.GetBytes(bytes);
+                    }
+
+                    return bytes;
+                }
             };
-            app.UseJwtBearerAuthentication(jwtOptions);
-            // New code added - END
+            app.UseDigestAuthentication(digestOptions);
+
+            //// New code added - BEGIN
+            //var jwtOptions = new JwtBearerAuthenticationOptions
+            //{
+            //    AllowedAudiences = new[] { "http://localhost:5000/api" },
+            //    IssuerSecurityTokenProviders = new[]
+            //{
+            //    new SymmetricKeyIssuerSecurityTokenProvider(
+            //        issuer: "http://authzserver.demo",
+            //        base64Key: "tTW8HB0ebW1qpCmRUEOknEIxaTQ0BFCYrdjOdOI4rfM=")
+            //}
+            //};
+            //app.UseJwtBearerAuthentication(jwtOptions);
+            //// New code added - END
 
             var config = new HttpConfiguration();
             config.Routes.MapHttpRoute("default", "api/{controller}/{id}");

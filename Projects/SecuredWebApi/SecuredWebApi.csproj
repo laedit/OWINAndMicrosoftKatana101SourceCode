@@ -85,6 +85,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DigestAuthenticationHandler.cs" />
+    <Compile Include="DigestAuthenticationMiddleware.cs" />
+    <Compile Include="DigestAuthenticator.cs" />
+    <Compile Include="DigestAuthenticationOptions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
