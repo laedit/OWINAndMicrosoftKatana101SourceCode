@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 
 namespace HelloIoC
 {
@@ -12,7 +12,7 @@ namespace HelloIoC
             }
         }
     }
-    
+
     public interface IClock
     {
         DateTime TimeNow { get; }

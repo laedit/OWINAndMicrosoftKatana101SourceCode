@@ -1,4 +1,4 @@
-using Microsoft.Owin.Hosting;
+﻿using Microsoft.Owin.Hosting;
 using StructureMap;
 using System;
 using System.Reflection;
